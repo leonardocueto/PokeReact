@@ -1,0 +1,12 @@
+.search{
+    padding: 1rem;
+}
+.search input{
+    font-size: larger;
+    padding-left:2rem ;
+    width: 22rem;
+    height: 2.75rem;
+    background-color: #F9FAFB;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px ;
+}
