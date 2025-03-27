@@ -1,6 +1,6 @@
 import { Favorites, Home } from '@/pages/'
 import { Navbar } from './components'
-import { usePage } from '@/context/context'
+import { usePage } from '@/context/page.context'
 
 function App() {
     const { currentPage } = usePage()
