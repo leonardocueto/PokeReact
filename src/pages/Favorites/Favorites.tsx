@@ -4,9 +4,19 @@ import { useFavorites } from '@/context'
 export const Favorites = () => {
     const { favorites } = useFavorites()
     return (
-        <div className='home'>
-            <h1>Favorites</h1>
-            <div className='home-container'>
+        <main
+            className='home'
+            aria-label='Favorites pokemon page'
+        >
+            <header>
+                <h1>
+                    <span>Favorites</span>
+                </h1>
+            </header>
+            <section
+                className='home-container'
+                aria-labelledby='favorites-heading'
+            >
                 {favorites.length > 0 ? (
                     favorites.map(pokemon => (
                         <Card
@@ -15,9 +25,14 @@ export const Favorites = () => {
                         />
                     ))
                 ) : (
-                    <p>Without pokemons</p>
+                    <p
+                        role='alert'
+                        aria-live='polite'
+                    >
+                        You don't have any favorite Pokémon yet
+                    </p>
                 )}
-            </div>
-        </div>
+            </section>
+        </main>
     )
 }
