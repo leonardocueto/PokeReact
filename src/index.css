@@ -28,10 +28,22 @@ html, body {
     padding: 1.5rem;
 }
 
-.home h1 {
-    text-align: center;
-    color: #111928;
-    padding: 1rem;
+.home h1{
+  text-align: center;
+  padding: 1rem 2rem; /* Equivalente a px-8 py-4 */
+}
+.home h1 span {
+  font-size: 2.25rem; /* Equivalente a text-4xl */
+  line-height: 2.5rem;
+  font-weight: 800; /* Equivalente a font-extrabold */
+  color: rgb(250 204 21); /* Equivalente a text-yellow-400 */
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.8)); /* drop-shadow personalizado */
+  letter-spacing: 0.025em; /* Equivalente a tracking-wide */
+  text-shadow: 
+    2px 2px 0 #3B4CCA,
+    -2px -2px 0 #3B4CCA,
+    2px -2px 0 #3B4CCA,
+    -2px 2px 0 #3B4CCA; /* Efecto outline con sombras */
 }
 
 .home-container{
@@ -49,17 +61,21 @@ html, body {
     .home-container {
       grid-template-columns: repeat(2, 1fr);
     }
+    .home h1 span {
+      font-size: 3rem; /* Equivalente a md:text-5xl */
+      line-height: 1;
+    }
   }
   
   /* Pantallas medianas - 3 columnas a partir de 1024px */
-  @media (min-width: 1024px) {
+  @media (min-width: 1120px) {
     .home-container {
       grid-template-columns: repeat(3, 1fr);
     }
   }
   
   /* Pantallas grandes - 4 columnas a partir de 1300px */
-  @media (min-width: 1300px) {
+  @media (min-width: 1500px) {
     .home-container {
       grid-template-columns: repeat(4, 1fr);
     }
