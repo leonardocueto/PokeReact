@@ -11,7 +11,7 @@ export const Navbar = () => {
                     setCurrentPage('/')
                 }}
             >
-                Home
+                Pokedex
             </a>
             <a
                 className={currentPage === '/favorites' ? 'active' : ''}
