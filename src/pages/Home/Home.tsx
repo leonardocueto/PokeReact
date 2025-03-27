@@ -1,7 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
-import { Card, Search } from '@/components/'
+import { Card } from '@/components/'
 import { usePokemon } from '@/hooks/'
-import './style.css'
 
 export const Home = () => {
     const { pokemonDetails, loading, getPokemons } = usePokemon()
@@ -49,7 +48,6 @@ export const Home = () => {
     return (
         <div className='home'>
             <h1>Home</h1>
-            <Search />
             <div className='home-container'>
                 {pokemonDetails.length > 0 &&
                     pokemonDetails.map(pokemon => (
