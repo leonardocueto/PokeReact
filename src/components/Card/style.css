@@ -1,19 +1,30 @@
+/* ===== ESTILOS BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== ESTILOS BASE DE LAS CARDS ===== */
 .cards {
-    width: 15rem;
-    height: 20rem;
+    width: 100%;
+    height: 100%;
     border-radius: .5rem;
+    border: 2px solid;
     transition: transform 0.5s;
     transform-style: preserve-3d; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
     padding: 1rem;
     position: relative;
     perspective: 1000px;
+    font-family: Arial, sans-serif;
+    aspect-ratio: 3/4; 
 }
-.cards:hover{
+
+.cards:hover {
     cursor: pointer;
 }
 
@@ -21,12 +32,61 @@
     transform: rotateY(180deg);
     cursor: pointer;
 }
-
-.cards img {
-    width: 150px;
-    height: 150px;
+.card-attack{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
 }
 
+.card-attack-percent{
+    height: 0.5rem;
+    border-radius: 9999px;
+}
+
+.card-attack-percentage{
+    height: 100%;
+    border-radius: 9999px;
+}
+
+
+
+.card-header{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.card-img img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 1/1; /* Mantener imagen cuadrada */
+    object-fit: contain;
+    margin-bottom: 1rem;
+    
+}
+
+.card-img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    
+}
+.card-stats{
+    width: 100%;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+/* ===== ESTILOS DE LAS CARAS DE LA CARD ===== */
 .card-front,
 .card-back {
     position: absolute;
@@ -39,57 +99,308 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 1.5rem;
+    color: inherit;
 }
 
 .card-back {
-    color: white;
     transform: rotateY(180deg); 
+    overflow-y: hidden; /* Scroll si el contenido es muy largo */
+    gap: 3rem;
+}
+.card-description{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap:1rem;
+}
+.card-abilities{
+    display: flex;
+    gap: 1rem;
+}
+.card-back .card-subtitle{
+    padding: 1rem;
+    font-size: 1.5rem;
 }
 
-.cards.loading:hover {
-    transform: none;
-    cursor: default;
+/* ===== ESTILOS DE TEXTO ===== */
+.card-title,
+.card-subtitle {
+    
+    color: inherit !important;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    word-break: break-word; /* Evitar desbordamiento */
 }
 
+.card-title {
+    font-size: clamp(1.2rem, 4vw, 1.5rem); /* Tamaño responsive */
+    text-transform: capitalize;
+}
+
+.card-header-title{
+    display: flex;
+    flex-direction: column;
+}
+.card-header-title p{
+    text-align: start;
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.card-subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem); /* Tamaño responsive */
+}
+
+.card-bg-img{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius:9999px;
+}
+
+.card-front p,
+.card-back p {
+    margin: 0.2rem 0;
+    width: 100%;
+    color: inherit;
+    font-size: clamp(0.8rem, 2.5vw, 1rem); /* Tamaño responsive */
+}
+
+.abilities-list {
+    width: 100%;
+    list-style: none;
+    color: inherit;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 0.25rem;
+}
+
+.favorite-heart{
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    z-index: 10px;
+    padding: 0.50rem;
+}
+
+.bg-hp{
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-weight: bold;
+
+}
+
+.abilities-list li {
+    margin: 0;
+    color: inherit;
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+/* ===== ESTILOS DE LOADING ===== */
 .loading {
     animation: pulse 1.5s infinite ease-in-out;
 }
 
-/* Animación de pulse */
 @keyframes pulse {
-    0% {
-        background-color: rgba(128, 128, 128, 0.7);
+    0%, 100% {
+        background-color: rgba(178, 177, 177, 0.7);
     }
     50% {
-        background-color: rgba(128, 128, 128, 1);
-    }
-    100% {
-        background-color: rgba(128, 128, 128, 0.7);
+        background-color: rgb(150, 150, 150);
     }
 }
 
-/* Background colors for different types */
+
+.bg-normal .card-attack-percentage {
+    background-color: oklch(0.551 0.027 264.364)
+}
+
+/* Fire */
+.bg-fire .card-attack-percentage {
+    background-color: oklch(0.705 0.213 47.604)
+}
+
+/* Grass */
+.bg-grass .card-attack-percentage {
+    background-color: oklch(0.723 0.219 149.579);
+}
+
+/* Water */
+.bg-water .card-attack-percentage {
+    background-color: oklch(0.623 0.214 259.815)
+}
+
+/* Poison */
+.bg-poison .card-attack-percentage {
+    background-color: oklch(0.606 0.25 292.717)
+}
+
+/* Bug */
+.bg-bug .card-attack-percentage {
+    background-color: oklch(0.768 0.233 130.85)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.bg-normal .card-attack-percent{
+    background-color: oklch(0.928 0.006 264.531)
+}
+
+/* Fire */
+.bg-fire .card-attack-percent{
+    background-color:oklch(0.901 0.076 70.697)
+}
+
+/* Grass */
+.bg-grass .card-attack-percent{
+    background-color: oklch(0.925 0.084 155.995)
+}
+
+/* Water */
+.bg-water .card-attack-percent{
+    background-color: oklch(0.882 0.059 254.128)
+}
+
+/* Poison */
+.bg-poison .card-attack-percent{
+    background-color: oklch(0.894 0.057 293.283)
+}
+
+/* Bug */
+.bg-bug .card-attack-percent{
+    background-color: oklch(0.938 0.127 124.321)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bg-normal .card-bg-img {
+    background-color: oklch(0.928 0.006 264.531)
+}
+
+/* Fire */
+.bg-fire .card-bg-img{
+    background-color: oklch(0.901 0.076 70.697)
+}
+
+/* Grass */
+.bg-grass .card-bg-img{
+    background-color: oklch(0.925 0.084 155.995)
+}
+
+/* Water */
+.bg-water .card-bg-img{
+    background-color: oklch(0.882 0.059 254.128)
+}
+
+/* Poison */
+.bg-poison .card-bg-img{
+    background-color: oklch(0.894 0.057 293.283);
+}
+
+/* Bug */
+.bg-bug .card-bg-img{
+    background-color: oklch(0.938 0.127 124.321);
+}
+
+
+.bg-normal .bg-hp {
+    background-color: oklch(0.928 0.006 264.531)
+}
+
+/* Fire */
+.bg-fire .bg-hp {
+    background-color: oklch(0.901 0.076 70.697)
+}
+
+/* Grass */
+.bg-grass .bg-hp {
+    background-color: oklch(0.925 0.084 155.995)
+}
+
+/* Water */
+.bg-water .bg-hp {
+    background-color: oklch(0.882 0.059 254.128)
+}
+
+/* Poison */
+.bg-poison .bg-hp {
+    background-color: oklch(0.894 0.057 293.283);
+}
+
+/* Bug */
+.bg-bug .bg-hp {
+    background-color: oklch(0.938 0.127 124.321);
+}
+
+
+
+/* ===== ESTILOS ESPECÍFICOS POR TIPO ===== */
+/* Normal */
 .bg-normal {
-    background-color: yellow;
-    
+    background: linear-gradient(to bottom, oklch(0.967 0.003 264.542) 0%, oklch(0.871 0.006 286.286) 100%);
+    border-color: oklch(0.551 0.027 264.364);
+    color: oklch(0.278 0.033 256.848);
 }
 
+/* Fire */
 .bg-fire {
-    background-color: darkorange;
+    background: linear-gradient(to bottom, oklch(0.954 0.038 75.164) 0%, oklch(0.837 0.128 66.29) 100%);
+    border-color: oklch(0.705 0.213 47.604);
+    color: oklch(0.47 0.157 37.304);
 }
 
+/* Grass */
 .bg-grass {
-    background-color: mediumseagreen;
+    background: linear-gradient(to bottom, rgba(236, 253, 245,1) 0%, rgba(110, 231, 183,1) 100%);
+    border-color: rgba(16, 185, 129,1);
+    color: oklch(0.448 0.119 151.328);
 }
 
+/* Water */
 .bg-water {
-    background-color: dodgerblue;
+    background: linear-gradient(to bottom, oklch(0.932 0.032 255.585) 0%, oklch(0.809 0.105 251.813) 100%);
+    border-color: oklch(0.623 0.214 259.815);
+    color: oklch(0.424 0.199 265.638);
 }
 
+/* Poison */
 .bg-poison {
-    background-color: purple;
+    background: linear-gradient(to bottom, oklch(0.946 0.033 307.174) 0%, oklch(0.827 0.119 306.383) 100%);
+    border-color: oklch(0.627 0.265 303.9);
+    color: oklch(0.438 0.218 303.724);
 }
 
+/* Bug */
 .bg-bug {
-    background-color: brown;
+    background: linear-gradient(to bottom, oklch(0.967 0.067 122.328) 0%, oklch(0.897 0.196 126.665) 100%);
+    border-color: oklch(0.768 0.233 130.85);
+    color: oklch(0.453 0.124 130.933);
 }
