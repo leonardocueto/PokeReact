@@ -1,17 +1,36 @@
 import './style.css'
 export const CardLoading = () => {
     return (
-        <div className='card-loading'>
-            <div className='header '>
-                <div className='title loading' />
-                <div className='hp loading' />
-            </div>
-            <div className='img loading' />
+        <article
+            className='card-loading'
+            aria-label='Cargando información del Pokémon'
+            role='status'
+        >
+            <header className='header '>
+                <div
+                    className='title loading'
+                    aria-hidden='true'
+                />
+                <div
+                    className='hp loading'
+                    aria-hidden='true'
+                />
+            </header>
+            <figure
+                className='img loading'
+                aria-hidden='true'
+            />
 
-            <div className='stats '>
-                <div className='bar loading ' />
-                <div className='bar loading' />
-            </div>
-        </div>
+            <section className='stats '>
+                <div
+                    className='bar loading '
+                    aria-hidden='true'
+                />
+                <div
+                    className='bar loading'
+                    aria-hidden='true'
+                />
+            </section>
+        </article>
     )
 }
