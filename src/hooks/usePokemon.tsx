@@ -33,7 +33,6 @@ export function usePokemon() {
             setLoading(false)
         }
     }
-
     return {
         pokemonDetails,
         loading,
