@@ -1,12 +1,12 @@
 import { useEffect, useState, useCallback } from 'react'
-import { Card } from '@/components/'
+import { Card, CardLoading } from '@/components/'
 import { usePokemon } from '@/hooks/'
 
 export const Home = () => {
     const { pokemonDetails, loading, getPokemons } = usePokemon()
-    const [isFetching, setIsFetching] = useState(false)
+    const [isFetching, setIsFetching] = useState(true)
 
-    // Función de scroll infinito
+    //Función de scroll infinito
     const handleScroll = useCallback(async () => {
         const { scrollTop, clientHeight, scrollHeight } =
             document.documentElement
@@ -47,7 +47,7 @@ export const Home = () => {
 
     return (
         <div className='home'>
-            <h1>Home</h1>
+            <h1>Pokedex</h1>
             <div className='home-container'>
                 {pokemonDetails.length > 0 &&
                     pokemonDetails.map(pokemon => (
@@ -57,9 +57,13 @@ export const Home = () => {
                             key={pokemon.id}
                         />
                     ))}
+
+                {loading &&
+                    Array.from({ length: 8 }).map((_, i) => (
+                        <CardLoading key={i} />
+                    ))}
+                {isFetching && !loading && <p>Loading more Pokémon...</p>}
             </div>
-            {loading && <p>Loading...</p>}
-            {isFetching && !loading && <p>Loading more Pokémon...</p>}
         </div>
     )
 }
