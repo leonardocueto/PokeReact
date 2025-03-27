@@ -46,9 +46,19 @@ export const Home = () => {
     }, [])
 
     return (
-        <div className='home'>
-            <h1>Pokedex</h1>
-            <div className='home-container'>
+        <main
+            className='home'
+            role='main'
+        >
+            <header>
+                <h1>
+                    <span>Pokedex</span>
+                </h1>
+            </header>
+            <section
+                className='home-container'
+                aria-label='Pokemon list'
+            >
                 {pokemonDetails.length > 0 &&
                     pokemonDetails.map(pokemon => (
                         <Card
@@ -62,8 +72,10 @@ export const Home = () => {
                     Array.from({ length: 8 }).map((_, i) => (
                         <CardLoading key={i} />
                     ))}
-                {isFetching && !loading && <p>Loading more Pokémon...</p>}
-            </div>
-        </div>
+                {isFetching && !loading && (
+                    <p aria-live='polite'>Loading more Pokémon...</p>
+                )}
+            </section>
+        </main>
     )
 }
