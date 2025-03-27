@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import './style.css'
 import { PokemonDetails, Ability } from '@/models'
-import { Heart } from '@/components'
+import { Heart, CardLoading } from '@/components'
 import { useFavorites } from '@/context'
 
 interface CardProps {
@@ -11,9 +11,8 @@ interface CardProps {
 
 export const Card = ({ data, loading }: CardProps) => {
     const [active, setActive] = useState(false)
-    const [isFavorite, setIsFavorite] = useState(false)
 
-    const { addFavorites, removeFavorites } = useFavorites()
+    const { addFavorites, removeFavorites, favorites } = useFavorites()
 
     const toggleActive = useCallback(() => setActive(prev => !prev), [])
     const getTypeClass = () => {
@@ -26,7 +25,7 @@ export const Card = ({ data, loading }: CardProps) => {
     const typeUpperLetter =
         data.types[0].type.name.charAt(0).toUpperCase() +
         data.types[0].type.name.slice(1)
-
+    const isFavorite = favorites.some(p => p.id === data.id)
     const handleHeartClick = (e: React.MouseEvent) => {
         e.stopPropagation()
 
@@ -35,13 +34,12 @@ export const Card = ({ data, loading }: CardProps) => {
         } else {
             removeFavorites(data.id)
         }
-        setIsFavorite(prev => !prev)
     }
 
     return (
         <>
             {loading ? (
-                <div className='cards loading'>loading</div>
+                <CardLoading />
             ) : (
                 <div
                     className={`cards ${
