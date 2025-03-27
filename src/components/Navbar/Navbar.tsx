@@ -1,4 +1,4 @@
-import { usePage } from '@/context/context'
+import { usePage } from '@/context/page.context'
 import './style.css'
 export const Navbar = () => {
     const { currentPage, setCurrentPage } = usePage()
