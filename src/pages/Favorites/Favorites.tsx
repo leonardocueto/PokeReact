@@ -7,12 +7,16 @@ export const Favorites = () => {
         <div className='home'>
             <h1>Favorites</h1>
             <div className='home-container'>
-                {favorites.map(pokemon => (
-                    <Card
-                        data={pokemon}
-                        key={pokemon.id}
-                    />
-                ))}
+                {favorites.length > 0 ? (
+                    favorites.map(pokemon => (
+                        <Card
+                            data={pokemon}
+                            key={pokemon.id}
+                        />
+                    ))
+                ) : (
+                    <p>Without pokemons</p>
+                )}
             </div>
         </div>
     )
