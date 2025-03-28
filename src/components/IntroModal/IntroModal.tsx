@@ -48,8 +48,8 @@ export const IntroModal = ({ pokemon, onClose }: IntroModalProps) => {
                     className='modal-text'
                 >
                     {step === 0
-                        ? 'En esta app podrás ver todos los Pokémon de PokeAPI de una forma interactiva.'
-                        : 'Al hacer clic en las cards, podrás ver una breve información del Pokémon.'}
+                        ? 'In this app, you can view all the Pokémon from PokeAPI in an interactive way.'
+                        : 'By clicking on the cards, you can see brief information about the Pokémon.'}
                 </p>
                 <div className='modal-card'>
                     <Card data={pokemon} />
@@ -59,7 +59,7 @@ export const IntroModal = ({ pokemon, onClose }: IntroModalProps) => {
                     className='modal-next'
                     onClick={handleNext}
                 >
-                    {step === 0 ? 'Siguiente' : '¡Entendido!'}
+                    {step === 0 ? 'Next' : 'Got it!'}
                 </button>
             </div>
         </div>
