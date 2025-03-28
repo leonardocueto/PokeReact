@@ -86,6 +86,7 @@
 }
 
 /* ===== ESTILOS DE LAS CARAS DE LA CARD ===== */
+
 .card-front,
 .card-back {
     position: absolute;
@@ -672,4 +673,11 @@
     background: linear-gradient(to bottom, oklch(0.967 0.067 122.328) 0%, oklch(0.897 0.196 126.665) 100%);
     border-color: oklch(0.768 0.233 130.85);
     color: oklch(0.453 0.124 130.933);
+}
+
+@media (max-width: 600px) {
+    .card-img {
+        margin: 0;
+        max-height: 100px;
+    }
 }

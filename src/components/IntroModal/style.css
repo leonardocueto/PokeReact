@@ -80,10 +80,26 @@
         width: 90%;
         height: auto;
         max-height: 80vh;
-        padding: 2rem;
+        padding: 0 2rem;
     }
+
+.modal-content h2{
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+
+.modal-text {
+    font-size: 0.75rem;
+line-height: 1rem;
+}
 
     .modal-card {
         width: 100%;
+       
+    }
+
+    .modal-next {
+        margin-top: 0rem;
     }
 }
