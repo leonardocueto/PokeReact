@@ -1,85 +1,86 @@
 # React Pokémon App
 
-## Descripción
+## Description
 
-Esta aplicación es una implementación nativa de React que utiliza TypeScript y
-la [PokeAPI](https://pokeapi.co/) para obtener datos sobre Pokémon. Todo el
-desarrollo se realizó sin librerías externas, incluyendo la navegación, que fue
-implementada de forma nativa con React y la API del navegador.
+This application is a native React implementation using TypeScript and the
+[PokeAPI](https://pokeapi.co/) to fetch data about Pokémon. The entire
+development was done without external libraries, including navigation, which was
+implemented natively with React and the browser's API.
 
-## Características
+## Features
 
--   **Navegación nativa:** La aplicación implementa un sistema de navegación sin
-    dependencias externas, utilizando únicamente las capacidades de React y la
-    API del navegador.
--   **Consumo de API:** Se conecta a la PokeAPI para obtener información sobre
-    los Pokémon, como nombres, imágenes, tipos, habilidades, entre otros.
--   **Favoritos:** Los usuarios pueden agregar Pokémon a una lista de favoritos,
-    que se puede consultar en una pestaña dedicada.
--   **Scroll infinito:** La lista de Pokémon implementa un sistema de scroll
-    infinito para cargar dinámicamente más datos a medida que el usuario se
-    desplaza.
--   **Interfaz Reactiva:** La interfaz se actualiza dinámicamente en función de
-    las interacciones del usuario y los datos obtenidos de la API.
+-   **Native Navigation:** The app implements a navigation system without
+    external dependencies, using only React and the browser's API capabilities.
+-   **API Consumption:** It connects to the PokeAPI to fetch information about
+    Pokémon, such as names, images, types, abilities, and more.
+-   **Favorites:** Users can add Pokémon to a favorites list, which can be
+    accessed in a dedicated tab.
+-   **Infinite Scroll:** The Pokémon list implements an infinite scroll system
+    to dynamically load more data as the user scrolls.
+-   **Reactive Interface:** The interface dynamically updates based on user
+    interactions and data fetched from the API.
 
-## Estructura del Proyecto
+## Project Structure
 
 ```
 react-pokemon/
 ├── public/
 ├── src/
-│   ├── components/   # Componentes reutilizables de la aplicación
-│   ├── pages/        # Páginas principales de la aplicación
-│   ├── hooks/        # Hooks personalizados para lógica reutilizable
-│   ├── utils/        # Funciones auxiliares y helpers
-│   ├── App.tsx       # Componente raíz de la aplicación
-│   ├── index.tsx     # Punto de entrada de la aplicación
-├── README.md         # Documentación del proyecto
+│   ├── components/   # Reusable components of the application
+│   ├── pages/        # Main pages of the application
+│   ├── hooks/        # Custom hooks for reusable logic
+│   ├── utils/        # Helper functions and utilities
+│   ├── App.tsx       # Root component of the application
+│   ├── index.tsx     # Application entry point
+├── README.md         # Project documentation
 ```
 
-## Instalación y Ejecución
+## Installation and Execution
 
-1. Clona este repositorio:
+1. Clone this repository:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone <REPOSITORY_URL>
 cd react-pokemon
 ```
 
-2. Instala las dependencias (aunque no se usan librerías externas, este paso
-   asegura que React y TypeScript estén configurados):
+2. Install dependencies (even though no external libraries are used, this step
+   ensures React and TypeScript are set up):
 
 ```bash
 npm install
 ```
 
-3. Inicia el servidor de desarrollo:
+3. Start the development server:
 
 ```bash
 npm start
 ```
 
-4. Abre la aplicación en tu navegador en `http://localhost:3000`.
+4. Open the application in your browser at `http://localhost:3000`.
 
-## Uso
+## Usage
 
-1. Al iniciar la aplicación, se muestra una lista de Pokémon obtenida de la
-   PokeAPI.
-2. Puedes desplazarte hacia abajo para cargar más Pokémon gracias al sistema de
-   scroll infinito.
-3. Puedes seleccionar un Pokémon para ver más detalles, como sus estadísticas,
-   habilidades y tipo.
-4. Puedes agregar Pokémon a una lista de favoritos, que se puede consultar en la
-   pestaña de favoritos.
-5. La navegación entre vistas se realiza de forma fluida gracias al sistema de
-   navegación nativo implementado con React y la API del navegador.
+1. When the application starts, a list of Pokémon fetched from the PokeAPI is
+   displayed.
+2. You can scroll down to load more Pokémon thanks to the infinite scroll
+   system.
+3. You can select a Pokémon to view more details, such as its stats, abilities,
+   and type.
+4. You can add Pokémon to a favorites list, which can be accessed in the
+   favorites tab.
+5. Navigation between views is smooth thanks to the native navigation system
+   implemented with React and the browser's API.
 
-## Tecnologías Utilizadas
+## Technologies Used
 
--   **React:** Biblioteca principal para la construcción de la interfaz de
-    usuario.
--   **TypeScript:** Lenguaje utilizado para la lógica de la aplicación,
-    proporcionando tipado estático.
--   **PokeAPI:** Fuente de datos para la información de los Pokémon.
--   **TypeScript:** Base del lenguaje para la implementación.
--   **HTML5 y CSS3:** Para la estructura y estilos de la aplicación.
+-   **React:** Main library for building the user interface.
+-   **TypeScript:** Language used for the application logic, providing static
+    typing.
+-   **PokeAPI:** Data source for Pokémon information.
+-   **HTML5 and CSS3:** For the structure and styles of the application.
+
+## Live Application
+
+You can access the deployed application here:
+[React Pokémon App](https://poke-react-tau.vercel.app/) React Pokémon App
