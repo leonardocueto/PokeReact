@@ -1,10 +1,12 @@
 import { useEffect, useState, useCallback } from 'react'
-import { Card, CardLoading } from '@/components/'
+import { Card, CardLoading, IntroModal } from '@/components/'
 import { usePokemon } from '@/hooks/'
 
 export const Home = () => {
     const { pokemonDetails, loading, getPokemons } = usePokemon()
     const [isFetching, setIsFetching] = useState(true)
+
+    const [showModal, setShowModal] = useState(!localStorage.getItem('modal'))
 
     //Función de scroll infinito
     const handleScroll = useCallback(async () => {
@@ -59,6 +61,12 @@ export const Home = () => {
                 className='home-container'
                 aria-label='Pokemon list'
             >
+                {showModal && pokemonDetails.length > 0 && (
+                    <IntroModal
+                        pokemon={pokemonDetails[5]}
+                        onClose={() => setShowModal(false)}
+                    />
+                )}
                 {pokemonDetails.length > 0 &&
                     pokemonDetails.map(pokemon => (
                         <Card
